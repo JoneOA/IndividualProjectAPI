@@ -24,4 +24,9 @@ public class PokemonController {
     public Pokemon addNote (@RequestBody Pokemon pokemon){
         return pokemonRepository.saveAndFlush(pokemon);
     }
+
+    @RequestMapping(value = "pokemon/id", method = RequestMethod.GET)
+    public Pokemon getPokemon(@PathVariable Long id){
+        return pokemonRepository.findOne(id);
+    }
 }

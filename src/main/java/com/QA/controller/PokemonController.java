@@ -25,8 +25,15 @@ public class PokemonController {
         return pokemonRepository.saveAndFlush(pokemon);
     }
 
-    @RequestMapping(value = "pokemon/id", method = RequestMethod.GET)
+    @RequestMapping(value = "pokemon/{id}", method = RequestMethod.GET)
     public Pokemon getPokemon(@PathVariable Long id){
         return pokemonRepository.findOne(id);
+    }
+
+    @RequestMapping(value = "pokemon/{id}", method = RequestMethod.DELETE)
+    public Pokemon deletePokemon(@PathVariable Long id) {
+        Pokemon existing = pokemonRepository.findOne(id);
+        pokemonRepository.delete(existing);
+        return existing;
     }
 }

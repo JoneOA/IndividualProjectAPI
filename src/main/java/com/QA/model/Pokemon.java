@@ -12,7 +12,7 @@ public class Pokemon {
     Long id;
     String name;
     String[] type;
-    Long baseId;
+    String base;
 
     public Long getId() {
         return id;
@@ -38,14 +38,12 @@ public class Pokemon {
         this.type = type;
     }
 
-    public Long getBaseId() {
-        return baseId;
+    public String getBase() {
+        return base;
     }
 
-    public void setBaseId(Long baseId) {
-        this.baseId = baseId;
+    public void setBase(String base) {
+        this.base = base;
     }
-
-
 
 }

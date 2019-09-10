@@ -21,7 +21,7 @@ public class PokemonController {
     }
 
     @RequestMapping(value = "pokemon", method = RequestMethod.POST)
-    public Pokemon addNote (@RequestBody Pokemon pokemon){
+    public Pokemon addPokemon(@RequestBody Pokemon pokemon){
         return pokemonRepository.saveAndFlush(pokemon);
     }
 

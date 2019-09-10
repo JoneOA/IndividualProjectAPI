@@ -3,6 +3,7 @@ package com.QA.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name="AllPokemon")
 public class Pokemon {
 
     @Id

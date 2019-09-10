@@ -1,8 +1,6 @@
 package com.QA.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 public class Pokemon {
@@ -12,7 +10,7 @@ public class Pokemon {
     Long id;
     String name;
     String[] type;
-    String base;
+    int[] base;
 
     public Long getId() {
         return id;
@@ -38,12 +36,11 @@ public class Pokemon {
         this.type = type;
     }
 
-    public String getBase() {
+    public int[] getBase() {
         return base;
     }
 
-    public void setBase(String base) {
+    public void setBase(int[] base) {
         this.base = base;
     }
-
 }

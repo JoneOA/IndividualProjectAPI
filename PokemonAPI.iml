@@ -4,6 +4,9 @@
     <facet type="Spring" name="Spring">
       <configuration />
     </facet>
+    <facet type="google-app-engine" name="Google App Engine">
+      <configuration />
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
     <output url="file://$MODULE_DIR$/target/classes" />

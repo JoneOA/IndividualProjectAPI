@@ -1,9 +1,8 @@
 package com.QA.controller;
 
 
-import com.QA.repository.PokemonRepositoryId;
+import com.QA.repository.PokemonRepository;
 import com.QA.model.Pokemon;
-import com.QA.repository.PokemonRepositoryName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,33 +13,27 @@ import java.util.List;
 public class PokemonController {
 
     @Autowired
-    private PokemonRepositoryId pokemonRepositoryId;
-    private PokemonRepositoryName pokemonRepositoryName;
+    private PokemonRepository pokemonRepository;
 
     @RequestMapping(value = "pokemon", method = RequestMethod.GET)
     public List<Pokemon> listAllPokemon() {
-        return pokemonRepositoryId.findAll();
+        return pokemonRepository.findAll();
     }
 
     @RequestMapping(value = "pokemon", method = RequestMethod.POST)
     public Pokemon addPokemon(@RequestBody Pokemon pokemon){
-        return pokemonRepositoryId.saveAndFlush(pokemon);
+        return pokemonRepository.saveAndFlush(pokemon);
     }
 
     @RequestMapping(value = "pokemon/{id}", method = RequestMethod.GET)
     public Pokemon getPokemon(@PathVariable Long id){
-        return pokemonRepositoryId.findOne(id);
-    }
-
-    @RequestMapping(value = "pokemon/{name}", method = RequestMethod.GET)
-    public Pokemon getPokemon(@PathVariable String name){
-        return pokemonRepositoryName.findOne(name);
+        return pokemonRepository.findOne(id);
     }
 
     @RequestMapping(value = "pokemon/{id}", method = RequestMethod.DELETE)
     public Pokemon deletePokemon(@PathVariable Long id) {
-        Pokemon existing = pokemonRepositoryId.findOne(id);
-        pokemonRepositoryId.delete(existing);
+        Pokemon existing = pokemonRepository.findOne(id);
+        pokemonRepository.delete(existing);
         return existing;
     }
 }

@@ -1,5 +1,7 @@
 package com.QA.model;
 
+import jdk.jfr.Name;
+
 import javax.persistence.*;
 
 @Entity
@@ -82,7 +84,7 @@ public class Pokemon {
         this.spDefence = spDefence;
     }
 
-    public int getSpeed(int i) {
+    public int getSpeed() {
         return speed;
     }
 

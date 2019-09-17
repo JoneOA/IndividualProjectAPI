@@ -26,7 +26,7 @@ public class PokemonController {
     }
 
     @RequestMapping(value = "pokemon/{id}", method = RequestMethod.GET)
-    public Pokemon getPokemon(@PathVariable Long id){
+    public Pokemon getPokemonById(@PathVariable Long id){
         return pokemonRepository.findOne(id);
     }
 

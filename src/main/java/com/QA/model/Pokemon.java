@@ -1,5 +1,7 @@
 package com.QA.model;
 
+import jdk.jfr.Name;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,8 @@ public class Pokemon {
     int spAttack;
     int spDefence;
     int speed;
+
+
 
     public Long getId() {
         return id;
@@ -82,11 +86,12 @@ public class Pokemon {
         this.spDefence = spDefence;
     }
 
-    public int getSpeed(int i) {
+    public int getSpeed() {
         return speed;
     }
 
     public void setSpeed(int speed) {
         this.speed = speed;
     }
+
 }

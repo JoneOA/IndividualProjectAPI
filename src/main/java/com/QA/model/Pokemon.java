@@ -20,6 +20,8 @@ public class Pokemon {
     int spDefence;
     int speed;
 
+
+
     public Long getId() {
         return id;
     }
@@ -91,4 +93,5 @@ public class Pokemon {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
+
 }

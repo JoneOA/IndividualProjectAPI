@@ -37,7 +37,7 @@ public class InventoryController {
             return inventoryRepository.saveAndFlush(existing);
     }
 
-    @RequestMapping(value = "pokemon/name/{name}", method = RequestMethod.GET)
+    @RequestMapping(value = "inventory/name/{name}", method = RequestMethod.GET)
     public Inventory getPokemonByName(@PathVariable String name){
         return inventoryRepository.findByName(name);
     }

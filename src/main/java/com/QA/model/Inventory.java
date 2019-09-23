@@ -91,5 +91,17 @@ public class Inventory {
         this.speed = speed;
     }
 
+    public void updateAll(Inventory pokemon){
+        this.id = pokemon.getId();
+        this.name = pokemon.getName();
+        this.type = pokemon.getType();
+        this.HP = pokemon.getHP();
+        this.Attack = pokemon.getAttack();
+        this.Defence = pokemon.getDefence();
+        this.spAttack = pokemon.getSpAttack();
+        this.spDefence = pokemon.getSpDefence();
+        this.speed = pokemon.getSpeed();
+    }
+
 }
 

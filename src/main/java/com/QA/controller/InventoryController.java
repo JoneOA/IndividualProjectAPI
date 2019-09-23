@@ -1,6 +1,7 @@
 package com.QA.controller;
 
 import com.QA.model.Inventory;
+import com.QA.model.Pokemon;
 import com.QA.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,17 @@ public class InventoryController {
     @RequestMapping(value = "inventory/{id}", method = RequestMethod.GET)
     public Inventory getPokemonById(@PathVariable Long id){
         return inventoryRepository.findOne(id);
+    }
+
+    @RequestMapping(value = "invetory/{id}", method = RequestMethod.PUT)
+    public Inventory updatePokemon(@PathVariable Long id, @RequestBody Inventory pokemon) {
+
+            Inventory existing = inventoryRepository.findOne(id);
+
+            existing.updateAll(pokemon);
+
+            return inventoryRepository.saveAndFlush(existing);
+
     }
 
     @RequestMapping(value = "inventory/{id}", method = RequestMethod.DELETE)

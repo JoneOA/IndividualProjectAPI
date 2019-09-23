@@ -3,11 +3,10 @@ package com.QA.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="AllPokemon")
-public class Pokemon {
+@Table(name="inventory")
+public class Inventory {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String name;
     String type;
@@ -93,3 +92,4 @@ public class Pokemon {
     }
 
 }
+

@@ -1,7 +1,7 @@
 package com.QA.controller;
 
 import com.QA.model.Pokemon;
-import com.QA.repository.PokemonRepositoryId;
+import com.QA.repository.PokemonRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,7 +27,7 @@ public class PokemonControllerTest {
     private PokemonController pokemonController;
 
     @Mock
-    private PokemonRepositoryId repository;
+    private PokemonRepository repository;
 
     @LocalServerPort
     private int port;
@@ -47,7 +47,7 @@ public class PokemonControllerTest {
         pokemon.setName("Bulbasaur");
         pokemon.setSpAttack(66);
         pokemon.setSpDefence(66);
-        pokemon.getSpeed(66);
+        pokemon.getSpeed();
         pokemon.setType("Grass");
 
         pokemonList.add(pokemon);

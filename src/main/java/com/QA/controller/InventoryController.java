@@ -32,13 +32,14 @@ public class InventoryController {
 
     @RequestMapping(value = "inventory/{id}", method = RequestMethod.PUT)
     public Inventory updatePokemon(@PathVariable Long id, @RequestBody Inventory pokemon) {
-
             Inventory existing = inventoryRepository.findOne(id);
-
             existing.updateAll(pokemon);
-
             return inventoryRepository.saveAndFlush(existing);
+    }
 
+    @RequestMapping(value = "pokemon/name/{name}", method = RequestMethod.GET)
+    public Inventory getPokemonByName(@PathVariable String name){
+        return inventoryRepository.findByName(name);
     }
 
     @RequestMapping(value = "inventory/{id}", method = RequestMethod.DELETE)

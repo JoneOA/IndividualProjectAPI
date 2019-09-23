@@ -36,4 +36,9 @@ public class PokemonController {
         pokemonRepository.delete(existing);
         return existing;
     }
+
+    @RequestMapping(value = "pokemon/name/{name}", method = RequestMethod.GET)
+    public Pokemon getPokemonByName(@PathVariable String name){
+        return pokemonRepository.findByName(name);
+    }
 }

@@ -30,7 +30,7 @@ public class InventoryController {
         return inventoryRepository.findOne(id);
     }
 
-    @RequestMapping(value = "invetory/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "inventory/{id}", method = RequestMethod.PUT)
     public Inventory updatePokemon(@PathVariable Long id, @RequestBody Inventory pokemon) {
 
             Inventory existing = inventoryRepository.findOne(id);

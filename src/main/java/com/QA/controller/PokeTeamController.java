@@ -35,7 +35,10 @@ public class PokeTeamController {
     @RequestMapping(value = "team/{id}", method = RequestMethod.PUT)
     public PokeTeam updatePokemon(@PathVariable Long id, @RequestBody PokeTeam pokemon) {
         PokeTeam existing = repository.findOne(id);
-        existing.updateAll(pokemon);
+        existing.setId(pokemon.getId());
+        existing.setName(pokemon.getName());
+        System.out.println(existing.getId());
+        System.out.println(existing.getName());
         return repository.saveAndFlush(existing);
     }
 

@@ -7,16 +7,15 @@ import javax.persistence.*;
 public class Inventory {
 
     @Id
-    Long id;
-    String name;
-    String type;
-    int HP;
-    int Attack;
-    int Defence;
-    int spAttack;
-    int spDefence;
-    int speed;
-
+    private Long id;
+    private String name;
+    private String type;
+    private int HP;
+    private int Attack;
+    private int Defence;
+    private int spAttack;
+    private int spDefence;
+    private int speed;
 
 
     public Long getId() {

@@ -1,7 +1,6 @@
 package com.QA.controller;
 
 import com.QA.model.Inventory;
-import com.QA.model.Pokemon;
 import com.QA.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

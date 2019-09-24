@@ -6,6 +6,7 @@ import com.QA.repository.PokeTeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -30,6 +31,7 @@ public class PokeTeamController {
         return repository.findOne(id);
     }
 
+    @Transactional
     @RequestMapping(value = "team/{id}", method = RequestMethod.PUT)
     public PokeTeam updatePokemon(@PathVariable Long id, @RequestBody PokeTeam pokemon) {
         PokeTeam existing = repository.findOne(id);

@@ -6,15 +6,25 @@ import javax.persistence.*;
 @Table(name="team")
 public class PokeTeam {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long pokeId;
     private String name;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long teamId) {
+        this.id = teamId;
+    }
+
+    public Long getPokeId() {
+        return pokeId;
+    }
+
+    public void setPokeId(Long id) {
+        this.pokeId = id;
     }
 
     public String getName() {
@@ -26,7 +36,7 @@ public class PokeTeam {
     }
 
     public void updateAll(PokeTeam pokemon) {
-        this.id = pokemon.id;
+        this.pokeId = pokemon.pokeId;
         this.name = pokemon.name;
     }
 }

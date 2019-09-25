@@ -37,10 +37,7 @@ public class PokeTeamController {
         PokeTeam existing = repository.findOne(id);
         existing.setPokeId(pokemon.getPokeId());
         existing.setName(pokemon.getName());
-        System.out.println(existing.getPokeId());
-        System.out.println(existing.getName());
         repository.saveAndFlush(existing);
-        System.out.println(existing);
         return existing;
     }
 

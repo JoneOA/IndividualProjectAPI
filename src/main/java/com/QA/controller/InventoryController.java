@@ -5,6 +5,7 @@ import com.QA.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -29,11 +30,20 @@ public class InventoryController {
         return inventoryRepository.findOne(id);
     }
 
+    @Transactional
     @RequestMapping(value = "inventory/{id}", method = RequestMethod.PUT)
     public Inventory updatePokemon(@PathVariable Long id, @RequestBody Inventory pokemon) {
             Inventory existing = inventoryRepository.findOne(id);
-            existing.updateAll(pokemon);
-            return inventoryRepository.saveAndFlush(existing);
+            existing.setName(pokemon.getName());
+            existing.setType(pokemon.getType());
+            existing.setHP(pokemon.getHP());
+            existing.setAttack(pokemon.getAttack());
+            existing.setDefence(pokemon.getDefence());
+            existing.setSpAttack(pokemon.getSpAttack());
+            existing.setSpDefence(pokemon.getSpDefence());
+            existing.setSpeed(pokemon.getSpeed());
+            inventoryRepository.saveAndFlush(existing);
+            return existing;
     }
 
     @RequestMapping(value = "inventory/name/{name}", method = RequestMethod.GET)

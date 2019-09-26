@@ -76,13 +76,25 @@ public class AppTest
         assertEquals(inventoryController.updatePokemon(4L, pokemon2).getName(), "Charmeleon");
     }
 
-
     @Test
     public void deletePokemonTest() {
         Inventory pokemon = new Inventory(6L, "Charizard", "Fire, Flying", 1, 2, 3, 4, 5, 6);
 
         when(inventoryRepository.findOne(6L)).thenReturn(pokemon);
         assertEquals(inventoryController.deletePokemon(6L).getType(), "Fire, Flying");
+    }
+
+    @Test
+    public void getByNameTest() {
+        List<Inventory> pokemonList = new ArrayList<>();
+
+        Inventory pokemon = new Inventory(7L, "Squirtle", "Water", 1, 2, 3, 4, 5, 6);
+
+        pokemonList.add(pokemon);
+
+        when(inventoryRepository.findByName("Squirtle")).thenReturn(pokemon);
+
+        assertEquals(inventoryController.getPokemonByName("Squirtle").getId(), new Long(7L));
     }
 
     App app;

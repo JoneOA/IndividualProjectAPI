@@ -75,4 +75,11 @@ public class PokemonControllerTest {
         assertEquals(pokemonController.deletePokemon(6L).getType(), "Fire, Flying");
     }
 
+    @Test
+    public void getByNameTest() {
+        Pokemon pokemon = new Pokemon(7L, "Squirtle", "Water", 1, 2, 3, 4, 5, 6);
+        when(repository.findByName("Squirtle")).thenReturn(pokemon);
+        assertEquals(pokemonController.getPokemonByName("Squirtle").getSpeed(), 6);
+    }
+
 }

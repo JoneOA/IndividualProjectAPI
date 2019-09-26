@@ -43,6 +43,24 @@ public class PokemonControllerTest {
         assertEquals(pokemonController.addPokemon(pokemon).getSpAttack(), 4);
     }
 
+    @Test
+    public void getAllPokemonTest() {
+        List<Pokemon> pokemonList = new ArrayList<>();
+
+        Pokemon pokemon1 = new Pokemon(2L, "Ivysaur", "Grass, Poison", 1, 2, 3, 4, 5, 6);
+        Pokemon pokemon2 = new Pokemon(3L, "Venusaur", "Grass, Poison", 1, 2, 3, 4, 5, 6);
+
+        pokemonList.add(pokemon1);
+        pokemonList.add(pokemon2);
+
+        when(repository.findAll()).thenReturn(pokemonList);
+
+        assertEquals(pokemonController.listAllPokemon().get(0).getId(), new Long(2L));
+        assertEquals(pokemonController.listAllPokemon().get(0).getSpDefence(), 5);
+        assertEquals(pokemonController.listAllPokemon().get(1).getType(), "Grass, Poison");
+        assertEquals(pokemonController.listAllPokemon().get(1).getDefence(), 3);
+    }
+
 
 
 

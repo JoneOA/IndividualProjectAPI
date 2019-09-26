@@ -60,4 +60,11 @@ public class PokemonControllerTest {
         assertEquals(pokemonController.listAllPokemon().get(1).getDefence(), 3);
     }
 
+    @Test
+    public void getByIdTest() {
+        Pokemon pokemon = new Pokemon(8L, "Wartortle", "Water", 1, 2, 3, 4, 5, 6);
+        when(repository.findOne(8L)).thenReturn(pokemon);
+        assertEquals(pokemonController.getPokemonById(8L).getName(), "Wartortle");
+    }
+
 }

@@ -69,4 +69,15 @@ public class PokeTeamControllerTest {
 
         assertEquals(pokeTeamController.updatePokemon(1L, pokemon2).getName(), "Charmeleon");
     }
+
+    @Test
+    public void getByIdTest() {
+        PokeTeam pokemon = new PokeTeam(1L, 8L, "Wartortle");
+
+        when(repository.findOne(1L)).thenReturn(pokemon);
+
+        assertEquals(pokeTeamController.getPokemonById(1L).getName(), "Wartortle");
+    }
+
+
 }

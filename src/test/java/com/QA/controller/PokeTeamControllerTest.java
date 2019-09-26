@@ -79,5 +79,18 @@ public class PokeTeamControllerTest {
         assertEquals(pokeTeamController.getPokemonById(1L).getName(), "Wartortle");
     }
 
+    @Test
+    public void getByNameTest() {
+        PokeTeam pokemon = new PokeTeam(1L, 7L, "Squirtle");
+        when(repository.findByName("Squirtle")).thenReturn(pokemon);
+        assertEquals(pokeTeamController.getPokemonByName("Squirtle").getPokeId(), new Long(7L));
+    }
 
+    @Test
+    public void deletePokemonTest() {
+        PokeTeam pokemon = new PokeTeam(1L, 6L, "Charizard");
+
+        when(repository.findOne(1L)).thenReturn(pokemon);
+        assertEquals(pokeTeamController.deletePokemon(1L).getName(), "Charizard");
+    }
 }

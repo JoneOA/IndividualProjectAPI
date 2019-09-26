@@ -46,6 +46,25 @@ public class AppTest
         assertEquals(inventoryController.addPokemon(pokemon).getName(), "Bulbasaur");
         assertEquals(inventoryController.addPokemon(pokemon).getSpAttack(), 4);
     }
+
+    @Test
+    public void getAllPokemonTest() {
+        List<Inventory> pokemonList = new ArrayList<>();
+
+        Inventory pokemon1 = new Inventory(2L, "Ivysaur", "Grass, Poison", 1, 2, 3, 4, 5, 6);
+        Inventory pokemon2 = new Inventory(3L, "Venusaur", "Grass, Poison", 1, 2, 3, 4, 5, 6);
+
+        pokemonList.add(pokemon1);
+        pokemonList.add(pokemon2);
+
+        when(inventoryRepository.findAll()).thenReturn(pokemonList);
+
+        assertEquals(inventoryController.listAllPokemon().get(0).getId(), new Long(2L));
+        assertEquals(inventoryController.listAllPokemon().get(0).getSpDefence(), 5);
+        assertEquals(inventoryController.listAllPokemon().get(1).getType(), "Grass, Poison");
+        assertEquals(inventoryController.listAllPokemon().get(1).getDefence(), 3);
+    }
+
     App app;
 
     @Test

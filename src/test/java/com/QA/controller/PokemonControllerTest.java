@@ -36,28 +36,13 @@ public class PokemonControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void testListAllPokemon() {
-        List<Pokemon> pokemonList = new ArrayList<>();
-        Pokemon pokemon = new Pokemon();
-
-        pokemon.setAttack(66);
-        pokemon.setDefence(66);
-        pokemon.setHP(100);
-        pokemon.setId((long) 1);
-        pokemon.setName("Bulbasaur");
-        pokemon.setSpAttack(66);
-        pokemon.setSpDefence(66);
-        pokemon.getSpeed();
-        pokemon.setType("Grass");
-
-        pokemonList.add(pokemon);
-
-        when(repository.findAll()).thenReturn(pokemonList);
-        assertEquals(
-                (long)pokemonController.listAllPokemon().get(0).getId(),
-                (long)1
-        );
+    public void addPokemonTest() {
+        Pokemon pokemon = new Pokemon(1L, "Bulbasaur", "Grass", 1, 2, 3, 4, 5, 6);
+        when(repository.saveAndFlush(pokemon)).thenReturn(pokemon);
+        assertEquals(pokemonController.addPokemon(pokemon).getName(), "Bulbasaur");
+        assertEquals(pokemonController.addPokemon(pokemon).getSpAttack(), 4);
     }
+
 
 
 

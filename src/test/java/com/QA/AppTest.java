@@ -65,6 +65,17 @@ public class AppTest
         assertEquals(inventoryController.listAllPokemon().get(1).getDefence(), 3);
     }
 
+    @Test
+    public void updatePokemonTest() {
+        Inventory pokemon1 = new Inventory(4L, "Charamder", "Fire", 1, 2, 3, 4, 5, 6);
+        Inventory pokemon2 = new Inventory(5L, "Charmeleon", "Fire, Flying", 1, 2, 3, 4, 5, 6);
+
+        when(inventoryRepository.findOne(4L)).thenReturn(pokemon1);
+        when(inventoryRepository.saveAndFlush(pokemon1)).thenReturn(pokemon1);
+
+        assertEquals(inventoryController.updatePokemon(4L, pokemon2).getName(), "Charmeleon");
+    }
+
     App app;
 
     @Test

@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -60,8 +59,5 @@ public class PokemonControllerTest {
         assertEquals(pokemonController.listAllPokemon().get(1).getType(), "Grass, Poison");
         assertEquals(pokemonController.listAllPokemon().get(1).getDefence(), 3);
     }
-
-
-
 
 }

@@ -86,15 +86,20 @@ public class AppTest
 
     @Test
     public void getByNameTest() {
-        List<Inventory> pokemonList = new ArrayList<>();
-
         Inventory pokemon = new Inventory(7L, "Squirtle", "Water", 1, 2, 3, 4, 5, 6);
-
-        pokemonList.add(pokemon);
 
         when(inventoryRepository.findByName("Squirtle")).thenReturn(pokemon);
 
-        assertEquals(inventoryController.getPokemonByName("Squirtle").getId(), new Long(7L));
+        assertEquals(inventoryController.getPokemonByName("Squirtle").getSpeed(), 6);
+    }
+
+    @Test
+    public void getByIdTest() {
+        Inventory pokemon = new Inventory(8L, "Wartortle", "Water", 1, 2, 3, 4, 5, 6);
+
+        when(inventoryRepository.findOne(8L)).thenReturn(pokemon);
+
+        assertEquals(inventoryController.getPokemonById(8L).getName(), "Wartortle");
     }
 
     App app;

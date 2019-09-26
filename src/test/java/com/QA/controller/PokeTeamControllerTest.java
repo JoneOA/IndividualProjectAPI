@@ -64,9 +64,9 @@ public class PokeTeamControllerTest {
         PokeTeam pokemon1 = new PokeTeam(1L ,4L, "Charamder");
         PokeTeam pokemon2 = new PokeTeam(2L,5L, "Charmeleon");
 
-        when(repository.findOne(4L)).thenReturn(pokemon1);
+        when(repository.findOne(1L)).thenReturn(pokemon1);
         when(repository.saveAndFlush(pokemon1)).thenReturn(pokemon1);
 
-        assertEquals(pokeTeamController.updatePokemon(4L, pokemon2).getName(), "Charmeleon");
+        assertEquals(pokeTeamController.updatePokemon(1L, pokemon2).getName(), "Charmeleon");
     }
 }

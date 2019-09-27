@@ -6,6 +6,7 @@ import com.QA.model.Pokemon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -35,5 +36,10 @@ public class PokemonController {
         Pokemon existing = pokemonRepository.findOne(id);
         pokemonRepository.delete(existing);
         return existing;
+    }
+
+    @RequestMapping(value = "pokemon/name/{name}", method = RequestMethod.GET)
+    public Pokemon getPokemonByName(@PathVariable String name){
+        return pokemonRepository.findByName(name);
     }
 }

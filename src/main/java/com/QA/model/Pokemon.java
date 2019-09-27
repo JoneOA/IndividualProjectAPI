@@ -8,15 +8,29 @@ public class Pokemon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-    String name;
-    String type;
-    int HP;
-    int Attack;
-    int Defence;
-    int spAttack;
-    int spDefence;
-    int speed;
+    private Long id;
+    private String name;
+    private String type;
+    private int HP;
+    private int Attack;
+    private int Defence;
+    private int spAttack;
+    private int spDefence;
+    private int speed;
+
+    public Pokemon() {}
+
+    public Pokemon(Long id, String name, String type, int HP, int Attack, int Defence, int spAttack, int spDefence, int speed) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.HP = HP;
+        this.Attack = Attack;
+        this.Defence = Defence;
+        this.spAttack = spAttack;
+        this.spDefence = spDefence;
+        this.speed = speed;
+    }
 
 
 

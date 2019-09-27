@@ -10,6 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -27,5 +28,11 @@ public class HomeControllerTest {
     @Test
     public void testHomepage() {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/", String.class).contains("hello world!"));
+    }
+
+    @Test
+    public void testHelloWorld(){
+        HomeController h = new HomeController();
+        assertEquals("hello world", h.home());
     }
 }
